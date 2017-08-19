@@ -1,0 +1,16 @@
+<html>
+<head><title>Lista kontaktów</title></head>
+<body>
+Hello, {{ name }}
+Osoby: {{ people }}
+
+{% if people %}
+<table>
+{% for p in people %}
+<p>{{ p.name }} {{ p.surname }}</p>
+{% endfor %}
+</table>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Show person</title>
+</head>
+<body>
+<center>
+ <a href="/"><button type="button" style="background-color: #4CAF50; color: white; font-size: 17px">Main</button></a>
+ <a href="/person/add_person/"><button type="button" style="background-color: #4CAF50; color: white; font-size: 17px">
+         Add Person</button></a><br><br>
+
+    First name: {{ person.name }} <br>
+    Last name: {{ person.surname }} <br><br>
+
+    {% for a in addresses %}
+    City: {{ a.city }} <br>
+    Street: {{ a.street }} <br>
+    House nr: {{ a.house_nr }} <br>
+    Apartment nr: {{ a.apartment_nr }} <br><br>
+    {% endfor %}
+
+    {% for p in phones %}
+    Number: {{ p.number }} <br>
+    Type: {{ p.type }} <br><br>
+    {% endfor %}
+
+    {% for e in email %}
+    Email: {{ e.email }}<br>
+    Type: {{ e.type }}<br><br>
+    {% endfor %}
+    Description: {{ person.description }}
+</center>
+</body>
+</html>

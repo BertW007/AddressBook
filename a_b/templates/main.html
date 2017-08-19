@@ -1,0 +1,41 @@
+<html>
+ <head><title>List of contacts</title></head>
+ <body>
+ <center>
+     <a href="/"><button type="button" style="background-color: #4CAF50; color: white; font-size: 17px">Main</button></a>
+     <a href="/person/add_person/"><button type="button" style="background-color: #4CAF50; color: white; font-size: 17px">
+             Add Person</button></a>
+ <br><br>
+     {{ message }}
+
+ <br><br>
+     {% if  people %}
+     <table style="border-collapse: collapse;">
+         <tr>
+             <th style="border-bottom: 1px solid #ddd;">Nr. |</th>
+             <th style="border-bottom: 1px solid #ddd;">Name |</th>
+             <th style="border-bottom: 1px solid #ddd;">Surname |</th>
+             <th style="border-bottom: 1px solid #ddd;">Options</th>
+             <th style="border-bottom: 1px solid #ddd;"></th>
+         </tr>
+     {% for p in people %}
+         <tr>
+             <td style="border-bottom: 1px solid #ddd;">{{ forloop.counter }}</td>
+             <td style="border-bottom: 1px solid #ddd;"><a href="/person/{{ p.id }}">{{ p.name }} </a></td>
+             <td style="border-bottom: 1px solid #ddd;"> {{ p.surname }}</td>
+             <td><center>
+                 <a href="/person/{{ p.id }}/delete/">
+                 <button type="button" style="background-color: red; color: white; font-size: 15px">X</button></a></center>
+             </td>
+             <td><center>
+                 <a href="/person/{{ p.id }}/edit/">
+                 <button type="button" style="border-radius: 50%; background-color: #008CBA; color: white; font-size: 15px">
+                     Edit</button></a></center>
+             </td>
+         </tr>
+     {% endfor %}
+     </table>
+     {% endif %}
+ </center>
+ </body>
+</html>
